@@ -12,9 +12,10 @@ RUN apt-get -y install python-pip python-dev libffi-dev python-psycopg2
 
 # Install Plaso
 RUN apt-get -y install software-properties-common 
-RUN add-apt-repository ppa:gift/stable
-RUN apt-get update
-RUN apt-get -y install python-plaso
+#RUN add-apt-repository ppa:gift/stable
+#RUN apt-get update
+#RUN apt-get -y install python-plaso
+RUN pip install plaso
 
 # Use pip to install Timesketch
 # RUN pip install timesketch
