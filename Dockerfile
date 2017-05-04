@@ -1,6 +1,7 @@
 # Pull and use the official Docker Hub Ubuntu 14.04 base image
 FROM ubuntu:17.04
-
+ENV http_proxy ''
+ENV https_proxy ''
 # Update the base image
 RUN apt-get update
 RUN apt-get -y upgrade
