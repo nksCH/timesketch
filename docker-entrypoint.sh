@@ -1,5 +1,6 @@
 #!/bin/bash
-
+export https_proxy=''
+export http_proxy=''
 # Run the container the default way
 if [ "$1" = 'timesketch' ]; then
 	# Set SECRET_KEY in /etc/timesketch.conf if it isn't already set
