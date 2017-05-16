@@ -9,10 +9,7 @@ if [ "$1" = 'timesketch' ]; then
 		# Using the pound sign as a delimiter to avoid problems with / being output from openssl
 		sed -i 's#SECRET_KEY = u\x27\x27#SECRET_KEY = u\x27'$OPENSSL_RAND'\x27#' /etc/timesketch.conf
 	fi
-	if grep -q "UPLOAD_ENABLED = False" /etc/timesketch.conf; then
-		# Using the pound sign as a delimiter to avoid problems with / being output from openssl
-		sed -i 's#UPLOAD_ENABLED = False#UPLOAD_ENABLED = True#' /etc/timesketch.conf
-	fi	
+	sed -i 's#UPLOAD_ENABLED = False#UPLOAD_ENABLED = True#' /etc/timesketch.conf	
 	# Set up the Postgres connection
 	if [ $POSTGRES_USER ] && [ $POSTGRES_PASSWORD ] && [ $POSTGRES_ADDRESS ] && [ $POSTGRES_PORT ]; then
 		sed -i 's#postgresql://<USERNAME>:<PASSWORD>@localhost#postgresql://'$POSTGRES_USER':'$POSTGRES_PASSWORD'@'$POSTGRES_ADDRESS':'$POSTGRES_PORT'#' /etc/timesketch.conf
